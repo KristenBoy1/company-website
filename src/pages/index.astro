@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { config } from "../config";
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden">
+    <!-- Gradient Background -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-accent)]/5 via-transparent to-transparent"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[var(--color-accent)]/8 rounded-full blur-[120px]"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-[var(--color-accent-light)] text-sm font-medium mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Building in public
+      </div>
+
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight max-w-4xl mx-auto">
+        {config.tagline}
+      </h1>
+
+      <p class="mt-6 text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
+        {config.description}
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/products"
+          class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-medium transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]"
+        >
+          View Products
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-8 py-3 rounded-lg border border-[var(--color-border-light)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:border-[var(--color-text-muted)] font-medium transition-all"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Build -->
+  <section class="py-20 border-t border-[var(--color-border)]">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">What We Build</h2>
+      <p class="text-[var(--color-text-secondary)] text-center max-w-xl mx-auto mb-12">
+        From APIs to automation workflows, templates to trading systems. Products that generate revenue on autopilot.
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {config.products.map((product) => (
+          <div class="group p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent-light)]">
+                {product.icon === "api" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                )}
+                {product.icon === "workflow" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+                )}
+                {product.icon === "service" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                )}
+                {product.icon === "template" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                )}
+                {product.icon === "skill" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                )}
+                {product.icon === "app" && (
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                )}
+              </div>
+              <div>
+                <h3 class="font-semibold text-[var(--color-text-primary)]">{product.name}</h3>
+                <span class="text-xs text-[var(--color-text-muted)]">{product.platform}</span>
+              </div>
+            </div>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">{product.description}</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class:list={[
+                "text-xs font-medium px-2 py-0.5 rounded",
+                product.status === "Live" ? "bg-emerald-500/10 text-emerald-400" :
+                product.status === "Coming Soon" ? "bg-amber-500/10 text-amber-400" :
+                "bg-[var(--color-accent)]/10 text-[var(--color-accent-light)]"
+              ]}>
+                {product.status}
+              </span>
+              {product.link !== "#" && (
+                <a href={product.link} class="text-xs text-[var(--color-accent-light)] hover:underline">View &rarr;</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-16 border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-bold text-[var(--color-accent-light)]">9+</div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">REST APIs</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-[var(--color-accent-light)]">27+</div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Automation Workflows</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-[var(--color-accent-light)]">40+</div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Templates</div>
+        </div>
+        <div>
+          <div class="text-3xl font-bold text-[var(--color-accent-light)]">10+</div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Web Apps</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 border-t border-[var(--color-border)]">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to automate?</h2>
+      <p class="text-[var(--color-text-secondary)] mb-8">
+        Browse our products or reach out for custom solutions. We build fast and ship on platforms where buyers find us.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-medium transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]"
+      >
+        Contact Us
+      </a>
+    </div>
+  </section>
+</Layout>

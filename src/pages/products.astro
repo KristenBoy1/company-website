@@ -1,0 +1,64 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { config } from "../config";
+---
+
+<Layout title="Products" description="Browse our APIs, automation workflows, templates, and digital products.">
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Products & Services</h1>
+      <p class="text-[var(--color-text-secondary)] max-w-2xl mb-12">
+        Software, automations, APIs, and digital products. Built to run on autopilot and sold on the platforms where buyers already shop.
+      </p>
+
+      <div class="space-y-8">
+        {config.products.map((product) => (
+          <div class="group p-6 md:p-8 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-2">
+                  <h2 class="text-xl font-bold">{product.name}</h2>
+                  <span class:list={[
+                    "text-xs font-medium px-2 py-0.5 rounded",
+                    product.status === "Live" ? "bg-emerald-500/10 text-emerald-400" :
+                    product.status === "Coming Soon" ? "bg-amber-500/10 text-amber-400" :
+                    "bg-[var(--color-accent)]/10 text-[var(--color-accent-light)]"
+                  ]}>
+                    {product.status}
+                  </span>
+                </div>
+                <p class="text-[var(--color-text-secondary)] leading-relaxed mb-3">{product.description}</p>
+                <div class="flex items-center gap-4 text-sm text-[var(--color-text-muted)]">
+                  <span>Platform: <strong class="text-[var(--color-text-secondary)]">{product.platform}</strong></span>
+                </div>
+              </div>
+              {product.link !== "#" && (
+                <a
+                  href={product.link}
+                  class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white text-sm font-medium transition-all whitespace-nowrap"
+                >
+                  View Product &rarr;
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Custom Work -->
+      <div class="mt-16 p-8 rounded-xl bg-gradient-to-r from-[var(--color-accent)]/10 to-transparent border border-[var(--color-accent)]/20">
+        <h2 class="text-xl font-bold mb-2">Need Something Custom?</h2>
+        <p class="text-[var(--color-text-secondary)] mb-4">
+          We build custom automations, APIs, scrapers, AI integrations, and data pipelines.
+          Tell us what you need and we'll scope it within 24 hours.
+        </p>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-[var(--color-accent)] text-[var(--color-accent-light)] hover:bg-[var(--color-accent)]/10 text-sm font-medium transition-all"
+        >
+          Request a Quote &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

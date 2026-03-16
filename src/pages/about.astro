@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { config } from "../config";
+---
+
+<Layout title="About" description="Learn about our mission, approach, and what drives us to build AI-powered products and automations.">
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-3xl md:text-4xl font-bold mb-8">About {config.companyName}</h1>
+
+      <div class="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
+        <p>
+          We're a small, AI-augmented operation based in <strong class="text-[var(--color-text-primary)]">Tallinn, Estonia</strong>.
+          We build software, automations, APIs, templates, and digital products — then distribute them on the platforms where buyers already shop.
+        </p>
+
+        <p>
+          Our philosophy is simple: <strong class="text-[var(--color-text-primary)]">build once, sell everywhere, automate everything</strong>.
+          Every product we create is designed to run with minimal intervention. We use AI agents, automation workflows, and modern development tools
+          to move fast without sacrificing quality.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] pt-4">How We Work</h2>
+
+        <p>
+          We leverage a multi-agent AI stack to plan, build, review, and ship products at a speed typically
+          reserved for larger teams. Human creativity and judgment guide every decision — AI handles the heavy lifting.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-4 py-4">
+          <div class="p-4 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+            <h3 class="font-semibold text-[var(--color-text-primary)] mb-1">Revenue-First</h3>
+            <p class="text-sm">Every product is evaluated by its path to revenue. We ship on marketplaces where buyers find us.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+            <h3 class="font-semibold text-[var(--color-text-primary)] mb-1">Cost-Conscious</h3>
+            <p class="text-sm">Local models, batched API calls, cached results. We optimize for margin, not vanity metrics.</p>
+          </div>
+          <div class="p-4 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+            <h3 class="font-semibold text-[var(--color-text-primary)] mb-1">Research-Driven</h3>
+            <p class="text-sm">We check existing tools and repos before building. Why reinvent when you can integrate?</p>
+          </div>
+          <div class="p-4 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+            <h3 class="font-semibold text-[var(--color-text-primary)] mb-1">Compound Value</h3>
+            <p class="text-sm">Code, templates, and infrastructure are reused across projects. Every build makes the next one faster.</p>
+          </div>
+        </div>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)] pt-4">What We Sell</h2>
+
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2">
+            <span class="text-[var(--color-accent-light)] mt-0.5">&#x2022;</span>
+            <span><strong class="text-[var(--color-text-primary)]">APIs</strong> — Business data, email finding, domain intelligence. Production-grade, documented, and reliable.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[var(--color-accent-light)] mt-0.5">&#x2022;</span>
+            <span><strong class="text-[var(--color-text-primary)]">Automation Workflows</strong> — Ready-to-import n8n packs for marketing, lead gen, and operations.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[var(--color-accent-light)] mt-0.5">&#x2022;</span>
+            <span><strong class="text-[var(--color-text-primary)]">Digital Templates</strong> — Professional PDF templates for budgets, planners, and business tools.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[var(--color-accent-light)] mt-0.5">&#x2022;</span>
+            <span><strong class="text-[var(--color-text-primary)]">Services</strong> — Custom automation, API development, AI integrations, and data pipelines.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[var(--color-accent-light)] mt-0.5">&#x2022;</span>
+            <span><strong class="text-[var(--color-text-primary)]">Web Apps</strong> — SaaS micro-tools, dashboards, and utility applications.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

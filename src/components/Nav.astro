@@ -1,0 +1,78 @@
+---
+import { config } from "../config";
+
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+---
+
+<nav class="border-b border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 backdrop-blur-md sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group">
+      <span class="text-xl font-bold text-[var(--color-accent-light)] group-hover:text-[var(--color-accent)] transition-colors">
+        {config.companyName}
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "text-sm font-medium transition-colors",
+            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+              ? "text-[var(--color-accent-light)]"
+              : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+    <div class="px-6 py-4 space-y-3">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            "block text-sm font-medium transition-colors",
+            currentPath === link.href
+              ? "text-[var(--color-accent-light)]"
+              : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+  });
+</script>

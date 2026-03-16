@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { config } from "../config";
+---
+
+<Layout title="Terms of Service" description="Terms and conditions for using our products and services.">
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-3xl font-bold mb-2">Terms of Service</h1>
+      <p class="text-sm text-[var(--color-text-muted)] mb-8">Last updated: March 16, 2026</p>
+
+      <div class="prose prose-invert max-w-none space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">1. Agreement to Terms</h2>
+        <p>
+          By accessing or using the {config.companyName} website and products, you agree to be bound by these Terms of Service.
+          If you do not agree to these terms, please do not use our services.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">2. Products and Services</h2>
+        <p>
+          {config.companyName} provides digital products including but not limited to:
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>REST APIs and data services</li>
+          <li>Automation workflow packages (n8n, etc.)</li>
+          <li>Digital templates (PDF, spreadsheets)</li>
+          <li>Claude Code skills and AI tools</li>
+          <li>Web applications and SaaS tools</li>
+          <li>Custom development services</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">3. Purchases and Payments</h2>
+        <p>
+          Payments are processed through third-party providers including Stripe, Gumroad, RapidAPI, Etsy, and Fiverr.
+          Each platform's terms and refund policies apply in addition to these terms.
+        </p>
+        <p>
+          All prices are listed in the currency specified on the respective platform. Prices may change without prior notice.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">4. Digital Product License</h2>
+        <p>
+          When you purchase a digital product (template, workflow pack, skill), you receive a
+          <strong class="text-[var(--color-text-primary)]">personal, non-transferable license</strong> to use the product
+          for your own personal or business purposes. You may not:
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Redistribute, resell, or share the product</li>
+          <li>Claim the product as your own creation</li>
+          <li>Use the product in a way that competes with {config.companyName}</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">5. API Usage</h2>
+        <p>
+          API access is subject to rate limits and fair use policies defined on RapidAPI or the relevant platform.
+          Abuse, excessive requests, or attempts to circumvent rate limits may result in access being revoked.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">6. Refund Policy</h2>
+        <p>
+          Due to the digital nature of our products:
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong class="text-[var(--color-text-primary)]">Digital downloads:</strong> No refunds after delivery, unless the product is materially defective.</li>
+          <li><strong class="text-[var(--color-text-primary)]">API subscriptions:</strong> Cancellable anytime through the platform. Pro-rated refunds per platform policy.</li>
+          <li><strong class="text-[var(--color-text-primary)]">Custom services:</strong> Refund terms defined per project agreement.</li>
+        </ul>
+        <p>
+          If you believe a product is defective, contact us at <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">{config.email}</a> within 14 days of purchase.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">7. Intellectual Property</h2>
+        <p>
+          All content, code, designs, and branding on this website and in our products are the property of {config.companyName}
+          unless otherwise stated. Open-source components are used under their respective licenses.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">8. Limitation of Liability</h2>
+        <p>
+          {config.companyName} provides products and services "as is" without warranty of any kind.
+          We are not liable for any indirect, incidental, or consequential damages arising from the use of our products.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">9. Governing Law</h2>
+        <p>
+          These terms are governed by the laws of the Republic of Estonia. Any disputes shall be resolved
+          in the courts of Tallinn, Estonia.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">10. Changes to Terms</h2>
+        <p>
+          We may update these terms from time to time. Changes will be posted on this page with an updated date.
+          Continued use of our services after changes constitutes acceptance.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">11. Contact</h2>
+        <p>
+          For questions about these terms, contact:
+        </p>
+        <p>
+          <strong class="text-[var(--color-text-primary)]">{config.companyName}</strong><br />
+          {config.location}<br />
+          <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">{config.email}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

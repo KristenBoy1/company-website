@@ -1,0 +1,48 @@
+---
+import { config } from "../config";
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <span class="text-lg font-bold text-[var(--color-accent-light)]">{config.companyName}</span>
+        <p class="mt-2 text-sm text-[var(--color-text-muted)] max-w-xs">
+          {config.description}
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Navigate</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
+          <li><a href="/products" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Products</a></li>
+          <li><a href="/about" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">About</a></li>
+          <li><a href="/contact" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h3 class="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="/privacy" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Terms of Service</a></li>
+        </ul>
+        <div class="mt-4">
+          <p class="text-sm text-[var(--color-text-muted)]">{config.email}</p>
+          <p class="text-sm text-[var(--color-text-muted)]">{config.location}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-8 border-t border-[var(--color-border)]">
+      <p class="text-sm text-[var(--color-text-muted)] text-center">
+        &copy; {year} {config.companyName}. All rights reserved.
+      </p>
+    </div>
+  </div>
+</footer>

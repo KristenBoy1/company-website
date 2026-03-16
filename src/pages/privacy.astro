@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { config } from "../config";
+---
+
+<Layout title="Privacy Policy" description="How we handle your data and protect your privacy.">
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-3xl font-bold mb-2">Privacy Policy</h1>
+      <p class="text-sm text-[var(--color-text-muted)] mb-8">Last updated: March 16, 2026</p>
+
+      <div class="prose prose-invert max-w-none space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">1. Introduction</h2>
+        <p>
+          {config.companyName} ("we", "us", "our") respects your privacy and is committed to protecting your personal data.
+          This privacy policy explains how we collect, use, and protect information when you visit our website or use our products and services.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">2. Information We Collect</h2>
+        <p>We may collect the following types of information:</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong class="text-[var(--color-text-primary)]">Contact information:</strong> Name, email address, and any information you provide through our contact form.</li>
+          <li><strong class="text-[var(--color-text-primary)]">Usage data:</strong> Information about how you interact with our website, including pages visited and time spent.</li>
+          <li><strong class="text-[var(--color-text-primary)]">Transaction data:</strong> Payment information processed through third-party providers (Stripe, Gumroad, etc.) when you purchase our products.</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">3. How We Use Your Information</h2>
+        <p>We use your information to:</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Respond to your inquiries and provide customer support</li>
+          <li>Process transactions and deliver purchased products</li>
+          <li>Improve our website and products</li>
+          <li>Send important updates about your purchases</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">4. Third-Party Services</h2>
+        <p>
+          We use the following third-party services that may collect data:
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li><strong class="text-[var(--color-text-primary)]">Stripe</strong> — Payment processing. See <a href="https://stripe.com/privacy" class="text-[var(--color-accent-light)] hover:underline">Stripe's Privacy Policy</a>.</li>
+          <li><strong class="text-[var(--color-text-primary)]">Vercel</strong> — Website hosting and analytics. See <a href="https://vercel.com/legal/privacy-policy" class="text-[var(--color-accent-light)] hover:underline">Vercel's Privacy Policy</a>.</li>
+        </ul>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">5. Data Retention</h2>
+        <p>
+          We retain personal data only as long as necessary to fulfill the purposes for which it was collected,
+          or as required by law. You may request deletion of your data at any time by contacting us.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">6. Your Rights (GDPR)</h2>
+        <p>
+          As we are based in the EU (Estonia), you have the following rights under the General Data Protection Regulation (GDPR):
+        </p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Right to access your personal data</li>
+          <li>Right to rectification of inaccurate data</li>
+          <li>Right to erasure ("right to be forgotten")</li>
+          <li>Right to restrict processing</li>
+          <li>Right to data portability</li>
+          <li>Right to object to processing</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">{config.email}</a>.</p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">7. Cookies</h2>
+        <p>
+          Our website uses minimal cookies necessary for functionality. We do not use advertising or tracking cookies.
+          Third-party services may set their own cookies in accordance with their respective privacy policies.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">8. Security</h2>
+        <p>
+          We implement appropriate technical and organizational measures to protect your personal data against unauthorized access,
+          alteration, disclosure, or destruction.
+        </p>
+
+        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">9. Contact</h2>
+        <p>
+          For privacy-related inquiries, contact us at:
+        </p>
+        <p>
+          <strong class="text-[var(--color-text-primary)]">{config.companyName}</strong><br />
+          {config.location}<br />
+          <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">{config.email}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
