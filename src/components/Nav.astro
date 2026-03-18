@@ -46,14 +46,14 @@ const links = [
         aria-label="Toggle menu"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
         </svg>
       </button>
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-bg-primary)]/95 backdrop-blur-xl border-t border-[var(--color-border)]">
+  <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-[var(--color-border)]">
     <div class="px-6 py-8 space-y-6">
       {links.map((link) => (
         <a
@@ -81,14 +81,12 @@ const links = [
 
   // Nav background on scroll
   const nav = document.getElementById("main-nav");
-  let lastScroll = 0;
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
     if (scrollY > 80) {
-      nav?.classList.add("bg-[var(--color-bg-primary)]/80", "backdrop-blur-xl", "border-b", "border-[var(--color-border)]");
+      nav?.classList.add("bg-white/80", "backdrop-blur-xl", "border-b", "border-[var(--color-border)]", "shadow-sm");
     } else {
-      nav?.classList.remove("bg-[var(--color-bg-primary)]/80", "backdrop-blur-xl", "border-b", "border-[var(--color-border)]");
+      nav?.classList.remove("bg-white/80", "backdrop-blur-xl", "border-b", "border-[var(--color-border)]", "shadow-sm");
     }
-    lastScroll = scrollY;
   }, { passive: true });
 </script>

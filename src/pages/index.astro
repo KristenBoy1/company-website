@@ -21,8 +21,8 @@ const stats = [
   <!-- Hero -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
     <!-- Ambient light -->
-    <div class="glow-orb w-[600px] h-[600px] bg-[var(--color-accent)] top-[-200px] left-1/2 -translate-x-1/2 opacity-[0.07]" data-parallax></div>
-    <div class="glow-orb w-[400px] h-[400px] bg-[var(--color-gold)] bottom-[-100px] right-[-100px] opacity-[0.05]"></div>
+    <div class="glow-orb w-[600px] h-[600px] bg-[var(--color-accent)] top-[-200px] left-1/2 -translate-x-1/2 opacity-[0.06]" data-parallax></div>
+    <div class="glow-orb w-[400px] h-[400px] bg-[var(--color-gold)] bottom-[-100px] right-[-100px] opacity-[0.06]"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 text-center">
       <!-- Overline -->
@@ -47,7 +47,7 @@ const stats = [
       <div class="reveal reveal-delay-3 mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/ventures"
-          class="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[var(--color-text-primary)] text-[var(--color-bg-primary)] text-sm font-medium tracking-wide transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:scale-[1.02]"
+          class="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[var(--color-text-primary)] text-white text-sm font-medium tracking-wide transition-all hover:shadow-lg hover:scale-[1.02]"
         >
           Our Ventures
           <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -82,7 +82,7 @@ const stats = [
             From enterprise APIs to consumer products, our ventures span the full spectrum of digital commerce.
             Each operates independently while sharing infrastructure, intelligence, and operational expertise.
           </p>
-          <a href="/ventures" class="inline-flex items-center gap-2 mt-8 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-text-primary)] transition-colors link-underline">
+          <a href="/ventures" class="inline-flex items-center gap-2 mt-8 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-dim)] transition-colors link-underline">
             Explore all ventures
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </a>
@@ -91,7 +91,7 @@ const stats = [
         <!-- Right: vertical cards -->
         <div class="grid grid-cols-2 gap-4">
           {verticals.map((v, i) => (
-            <div class={`reveal reveal-delay-${i + 1} p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] border-glow card-shine`}>
+            <div class={`reveal reveal-delay-${i + 1} p-6 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] border-glow card-shine`}>
               <div class="text-3xl font-serif font-medium text-[var(--color-text-primary)] mb-1">
                 {v.count}
               </div>
@@ -115,7 +115,7 @@ const stats = [
 
       <div class="grid md:grid-cols-2 gap-5">
         {config.ventures.map((venture, i) => (
-          <div class={`reveal reveal-delay-${(i % 4) + 1} group p-7 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] border-glow card-shine`}>
+          <div class={`reveal reveal-delay-${(i % 4) + 1} group p-7 rounded-xl bg-white border border-[var(--color-border)] border-glow card-shine shadow-sm`}>
             <div class="flex items-start justify-between mb-4">
               <div>
                 <h3 class="text-lg font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
@@ -127,9 +127,9 @@ const stats = [
               </div>
               <span class:list={[
                 "text-[10px] tracking-wider uppercase font-medium px-3 py-1 rounded-full",
-                venture.status === "Operational" ? "bg-emerald-500/10 text-emerald-400/80" :
-                venture.status === "Active" ? "bg-[var(--color-accent)]/10 text-[var(--color-accent)]" :
-                "bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
+                venture.status === "Operational" ? "bg-emerald-50 text-emerald-600" :
+                venture.status === "Active" ? "bg-violet-50 text-[var(--color-accent)]" :
+                "bg-amber-50 text-[var(--color-gold)]"
               ]}>
                 {venture.status}
               </span>
@@ -180,7 +180,7 @@ const stats = [
 
   <!-- CTA -->
   <section class="relative py-28 border-t border-[var(--color-border)] overflow-hidden">
-    <div class="glow-orb w-[500px] h-[500px] bg-[var(--color-accent)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]"></div>
+    <div class="glow-orb w-[500px] h-[500px] bg-[var(--color-accent)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.04]"></div>
 
     <div class="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
       <div class="reveal">
@@ -190,7 +190,7 @@ const stats = [
         </p>
         <a
           href="/contact"
-          class="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-[var(--color-border-light)] text-[var(--color-text-primary)] text-sm font-medium tracking-wide transition-all hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg-primary)] hover:scale-[1.02]"
+          class="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-[var(--color-border-light)] text-[var(--color-text-primary)] text-sm font-medium tracking-wide transition-all hover:bg-[var(--color-text-primary)] hover:text-white hover:scale-[1.02]"
         >
           Get in Touch
           <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
