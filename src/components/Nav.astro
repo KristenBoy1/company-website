@@ -5,61 +5,64 @@ const currentPath = Astro.url.pathname;
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/products", label: "Products" },
+  { href: "/ventures", label: "Ventures" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 ---
 
-<nav class="border-b border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 backdrop-blur-md sticky top-0 z-50">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 group">
-      <span class="text-xl font-bold text-[var(--color-accent-light)] group-hover:text-[var(--color-accent)] transition-colors">
-        {config.companyName}
-      </span>
-    </a>
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 rounded-sm bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-gold)] opacity-90 group-hover:opacity-100 transition-opacity"></div>
+        <span class="text-lg font-semibold tracking-wide text-[var(--color-text-primary)]">
+          {config.companyName}
+        </span>
+      </a>
 
-    <!-- Desktop Nav -->
-    <div class="hidden md:flex items-center gap-8">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            "text-sm font-medium transition-colors",
-            currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
-              ? "text-[var(--color-accent-light)]"
-              : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
-          ]}
-        >
-          {link.label}
-        </a>
-      ))}
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-10">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              "text-[13px] font-medium tracking-widest uppercase transition-colors duration-300 link-underline",
+              currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+                ? "text-[var(--color-text-primary)]"
+                : "text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]",
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+        </svg>
+      </button>
     </div>
-
-    <!-- Mobile Menu Button -->
-    <button
-      id="mobile-menu-btn"
-      class="md:hidden text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]"
-      aria-label="Toggle menu"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
-    <div class="px-6 py-4 space-y-3">
+  <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-bg-primary)]/95 backdrop-blur-xl border-t border-[var(--color-border)]">
+    <div class="px-6 py-8 space-y-6">
       {links.map((link) => (
         <a
           href={link.href}
           class:list={[
-            "block text-sm font-medium transition-colors",
+            "block text-[13px] font-medium tracking-widest uppercase transition-colors",
             currentPath === link.href
-              ? "text-[var(--color-accent-light)]"
-              : "text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
+              ? "text-[var(--color-text-primary)]"
+              : "text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]",
           ]}
         >
           {link.label}
@@ -75,4 +78,17 @@ const links = [
   btn?.addEventListener("click", () => {
     menu?.classList.toggle("hidden");
   });
+
+  // Nav background on scroll
+  const nav = document.getElementById("main-nav");
+  let lastScroll = 0;
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    if (scrollY > 80) {
+      nav?.classList.add("bg-[var(--color-bg-primary)]/80", "backdrop-blur-xl", "border-b", "border-[var(--color-border)]");
+    } else {
+      nav?.classList.remove("bg-[var(--color-bg-primary)]/80", "backdrop-blur-xl", "border-b", "border-[var(--color-border)]");
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
 </script>

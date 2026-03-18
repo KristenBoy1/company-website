@@ -1,82 +1,72 @@
-// ============================================
-// COMPANY WEBSITE CONFIGURATION
-// Change these values to customize the site.
-// This is the ONLY file you need to edit for branding.
-// ============================================
-
 export const config = {
-  // Company identity — CHANGE THESE
-  companyName: "PROJEKTID",
-  tagline: "AI-Powered Software, Automations & Digital Products",
-  description: "We build revenue-generating software, automation workflows, APIs, templates, and AI-assisted products.",
+  companyName: "Votting Group",
+  legalName: "Võtting Grupp OÜ",
+  tagline: "Building the Future of Digital Commerce",
+  description: "A Tallinn-based holding company operating across software, digital products, e-commerce, and AI-driven ventures.",
 
-  // Contact — CHANGE THESE
-  email: "hello@projektid.com",
+  email: "info@votting-group.com",
   location: "Tallinn, Estonia",
+  registry: "Estonian Commercial Register",
 
-  // Domain — CHANGE when custom domain is purchased
-  domain: "projektid.com",
-  url: "https://projektid.com",
+  domain: "votting-group.com",
+  url: "https://votting-group.com",
 
-  // Social — ADD as needed
   social: {
     github: "",
     twitter: "",
     linkedin: "",
   },
 
-  // SEO
   ogImage: "/og-image.png",
 
-  // Product categories for the Products page
-  products: [
+  ventures: [
     {
       name: "Data APIs",
-      description: "Production-ready REST APIs for business data, emails, domains, companies, and more. Deployed on Railway, listed on RapidAPI.",
-      platform: "RapidAPI",
-      status: "Live",
-      link: "#",
-      icon: "api",
+      vertical: "Software",
+      description: "Enterprise-grade REST APIs delivering business intelligence, contact discovery, and domain analytics at scale.",
+      status: "Operational",
     },
     {
-      name: "Automation Workflows",
-      description: "Pre-built n8n workflow packs for marketing, lead gen, social media, and business automation. Download and import into your n8n instance.",
-      platform: "Gumroad",
-      status: "Coming Soon",
-      link: "#",
-      icon: "workflow",
+      name: "Automation Platform",
+      vertical: "Software",
+      description: "Pre-built workflow solutions for marketing automation, lead generation, and business process optimization.",
+      status: "Operational",
     },
     {
-      name: "Fiverr Services",
-      description: "Professional automation, API development, data scraping, and AI integration services. Custom solutions built to your spec.",
-      platform: "Fiverr",
-      status: "Coming Soon",
-      link: "#",
-      icon: "service",
+      name: "Digital Products",
+      vertical: "Commerce",
+      description: "A curated portfolio of professional templates, tools, and digital assets distributed across global marketplaces.",
+      status: "Operational",
     },
     {
-      name: "Digital Templates",
-      description: "40+ professionally designed PDF templates for budgets, planners, trackers, and business documents. Instant download.",
-      platform: "Etsy",
-      status: "Coming Soon",
-      link: "#",
-      icon: "template",
+      name: "Professional Services",
+      vertical: "Services",
+      description: "Custom automation engineering, API development, and AI integration consulting for businesses worldwide.",
+      status: "Operational",
     },
     {
-      name: "Claude Code Skills",
-      description: "Custom skill packs for Claude Code — backtesting, Shopify themes, code review, ML pipelines, and more.",
-      platform: "aitmpl.com",
-      status: "Coming Soon",
-      link: "#",
-      icon: "skill",
+      name: "E-commerce Operations",
+      vertical: "Commerce",
+      description: "End-to-end product testing and scaling through owned retail channels, creative production, and performance marketing.",
+      status: "Active",
+    },
+    {
+      name: "AI Research & Trading",
+      vertical: "Research",
+      description: "Proprietary machine learning systems applied to quantitative analysis, predictive modeling, and algorithmic trading.",
+      status: "Development",
     },
     {
       name: "Web Applications",
-      description: "SaaS micro-tools built with modern frameworks. Productivity apps, calculators, dashboards, and utility tools.",
-      platform: "Direct",
-      status: "In Development",
-      link: "#",
-      icon: "app",
+      vertical: "Software",
+      description: "A suite of SaaS micro-tools and productivity applications built with modern frameworks for global distribution.",
+      status: "Active",
+    },
+    {
+      name: "Content & Publishing",
+      vertical: "Commerce",
+      description: "AI-assisted content production and digital publishing across audiobook, template, and educational channels.",
+      status: "Active",
     },
   ],
 } as const;

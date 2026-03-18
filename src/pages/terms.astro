@@ -3,105 +3,149 @@ import Layout from "../layouts/Layout.astro";
 import { config } from "../config";
 ---
 
-<Layout title="Terms of Service" description="Terms and conditions for using our products and services.">
-  <section class="py-20">
-    <div class="max-w-3xl mx-auto px-6">
-      <h1 class="text-3xl font-bold mb-2">Terms of Service</h1>
-      <p class="text-sm text-[var(--color-text-muted)] mb-8">Last updated: March 16, 2026</p>
+<Layout title="Terms of Service" description="Terms and conditions for using Votting Group products and services.">
+  <section class="pt-32 pb-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+      <div class="reveal mb-12">
+        <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-accent)] mb-4 block">Legal</span>
+        <h1 class="font-serif text-3xl md:text-4xl font-medium mb-3">Terms of Service</h1>
+        <p class="text-sm text-[var(--color-text-muted)]">Last updated: March 18, 2026</p>
+      </div>
 
-      <div class="prose prose-invert max-w-none space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">1. Agreement to Terms</h2>
-        <p>
-          By accessing or using the {config.companyName} website and products, you agree to be bound by these Terms of Service.
-          If you do not agree to these terms, please do not use our services.
-        </p>
+      <div class="reveal reveal-delay-1 space-y-8 text-[var(--color-text-secondary)] leading-relaxed text-[15px]">
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">1. Agreement to Terms</h2>
+          <p>
+            By accessing or using the {config.legalName} ("{config.companyName}") website and products, you agree to be bound by these Terms of Service.
+            If you do not agree to these terms, please do not use our services.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">2. Products and Services</h2>
-        <p>
-          {config.companyName} provides digital products including but not limited to:
-        </p>
-        <ul class="list-disc list-inside space-y-1">
-          <li>REST APIs and data services</li>
-          <li>Automation workflow packages (n8n, etc.)</li>
-          <li>Digital templates (PDF, spreadsheets)</li>
-          <li>Claude Code skills and AI tools</li>
-          <li>Web applications and SaaS tools</li>
-          <li>Custom development services</li>
-        </ul>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">2. Products and Services</h2>
+          <p>{config.legalName} provides digital products and services including but not limited to:</p>
+          <ul class="mt-3 space-y-2">
+            {["REST APIs and data services", "Automation workflow packages", "Digital templates and documents", "AI-powered tools and skills", "Web applications and SaaS tools", "Custom development and consulting services"].map(item => (
+              <li class="flex items-start gap-3">
+                <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">3. Purchases and Payments</h2>
-        <p>
-          Payments are processed through third-party providers including Stripe, Gumroad, RapidAPI, Etsy, and Fiverr.
-          Each platform's terms and refund policies apply in addition to these terms.
-        </p>
-        <p>
-          All prices are listed in the currency specified on the respective platform. Prices may change without prior notice.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">3. Purchases and Payments</h2>
+          <p>
+            Payments are processed through third-party providers including Stripe, Gumroad, RapidAPI, Etsy, and Fiverr.
+            Each platform's terms and refund policies apply in addition to these terms.
+          </p>
+          <p class="mt-3">
+            All prices are listed in the currency specified on the respective platform. Prices may change without prior notice,
+            but changes will not affect existing orders.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">4. Digital Product License</h2>
-        <p>
-          When you purchase a digital product (template, workflow pack, skill), you receive a
-          <strong class="text-[var(--color-text-primary)]">personal, non-transferable license</strong> to use the product
-          for your own personal or business purposes. You may not:
-        </p>
-        <ul class="list-disc list-inside space-y-1">
-          <li>Redistribute, resell, or share the product</li>
-          <li>Claim the product as your own creation</li>
-          <li>Use the product in a way that competes with {config.companyName}</li>
-        </ul>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">4. Digital Product Licence</h2>
+          <p>
+            When you purchase a digital product (template, workflow pack, skill, or tool), you receive a
+            <strong class="text-[var(--color-text-primary)]">personal, non-exclusive, non-transferable licence</strong> to use the product
+            for your own personal or business purposes. You may not:
+          </p>
+          <ul class="mt-3 space-y-2">
+            {["Redistribute, resell, or share the product with third parties", "Claim the product as your own original creation", "Use the product in a way that directly competes with Votting Group", "Reverse-engineer or attempt to extract source code from compiled products"].map(item => (
+              <li class="flex items-start gap-3">
+                <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">5. API Usage</h2>
-        <p>
-          API access is subject to rate limits and fair use policies defined on RapidAPI or the relevant platform.
-          Abuse, excessive requests, or attempts to circumvent rate limits may result in access being revoked.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">5. API Usage</h2>
+          <p>
+            API access is subject to rate limits and fair use policies as defined on the respective platform (e.g., RapidAPI).
+            Abuse, excessive requests, scraping, or attempts to circumvent rate limits may result in access being suspended or revoked without refund.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">6. Refund Policy</h2>
-        <p>
-          Due to the digital nature of our products:
-        </p>
-        <ul class="list-disc list-inside space-y-1">
-          <li><strong class="text-[var(--color-text-primary)]">Digital downloads:</strong> No refunds after delivery, unless the product is materially defective.</li>
-          <li><strong class="text-[var(--color-text-primary)]">API subscriptions:</strong> Cancellable anytime through the platform. Pro-rated refunds per platform policy.</li>
-          <li><strong class="text-[var(--color-text-primary)]">Custom services:</strong> Refund terms defined per project agreement.</li>
-        </ul>
-        <p>
-          If you believe a product is defective, contact us at <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">{config.email}</a> within 14 days of purchase.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">6. Refund Policy</h2>
+          <p>Due to the digital nature of our products:</p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">Digital downloads:</strong> No refunds after delivery, unless the product is materially defective or not as described.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">API subscriptions:</strong> Cancellable at any time through the platform. Refunds per platform policy.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">Custom services:</strong> Refund terms defined per individual project agreement.</span>
+            </li>
+          </ul>
+          <p class="mt-3">
+            If you believe a product is defective, contact us at <a href={`mailto:${config.email}`} class="text-[var(--color-accent)] hover:underline">{config.email}</a> within 14 days of purchase.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">7. Intellectual Property</h2>
-        <p>
-          All content, code, designs, and branding on this website and in our products are the property of {config.companyName}
-          unless otherwise stated. Open-source components are used under their respective licenses.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">7. Intellectual Property</h2>
+          <p>
+            All content, code, designs, and branding on this website and in our products are the intellectual property of {config.legalName}
+            unless otherwise stated. Open-source components are used under their respective licences.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">8. Limitation of Liability</h2>
-        <p>
-          {config.companyName} provides products and services "as is" without warranty of any kind.
-          We are not liable for any indirect, incidental, or consequential damages arising from the use of our products.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">8. Limitation of Liability</h2>
+          <p>
+            {config.legalName} provides products and services "as is" without warranty of any kind, express or implied.
+            To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, or consequential damages
+            arising from the use of our products or services.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">9. Governing Law</h2>
-        <p>
-          These terms are governed by the laws of the Republic of Estonia. Any disputes shall be resolved
-          in the courts of Tallinn, Estonia.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">9. Governing Law</h2>
+          <p>
+            These terms are governed by and construed in accordance with the laws of the Republic of Estonia.
+            Any disputes arising from these terms shall be resolved in the courts of Tallinn, Estonia.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">10. Changes to Terms</h2>
-        <p>
-          We may update these terms from time to time. Changes will be posted on this page with an updated date.
-          Continued use of our services after changes constitutes acceptance.
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">10. Severability</h2>
+          <p>
+            If any provision of these terms is found to be unenforceable or invalid, that provision shall be limited or
+            eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
+          </p>
+        </div>
 
-        <h2 class="text-xl font-bold text-[var(--color-text-primary)]">11. Contact</h2>
-        <p>
-          For questions about these terms, contact:
-        </p>
-        <p>
-          <strong class="text-[var(--color-text-primary)]">{config.companyName}</strong><br />
-          {config.location}<br />
-          <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">{config.email}</a>
-        </p>
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">11. Changes to Terms</h2>
+          <p>
+            We reserve the right to update these terms at any time. Changes will be posted on this page with an updated date.
+            Continued use of our services after changes constitutes acceptance of the modified terms.
+          </p>
+        </div>
+
+        <div class="pt-4">
+          <div class="hr-gradient mb-8"></div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">Contact</h2>
+          <p>For questions about these terms:</p>
+          <div class="mt-3 p-5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-sm">
+            <p class="text-[var(--color-text-primary)] font-medium">{config.legalName}</p>
+            <p class="text-[var(--color-text-muted)] mt-1">{config.location}</p>
+            <p class="text-[var(--color-text-muted)]">
+              <a href={`mailto:${config.email}`} class="text-[var(--color-accent)] hover:underline">{config.email}</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

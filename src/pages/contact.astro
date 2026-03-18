@@ -3,112 +3,128 @@ import Layout from "../layouts/Layout.astro";
 import { config } from "../config";
 ---
 
-<Layout title="Contact" description="Get in touch for custom work, questions, or partnerships.">
-  <section class="py-20">
-    <div class="max-w-3xl mx-auto px-6">
-      <h1 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h1>
-      <p class="text-[var(--color-text-secondary)] mb-12">
-        Have a project in mind, a question about our products, or want to discuss a partnership?
-        We'd love to hear from you.
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Contact Info -->
-        <div class="space-y-6">
-          <div>
-            <h3 class="font-semibold text-[var(--color-text-primary)] mb-2">Email</h3>
-            <a href={`mailto:${config.email}`} class="text-[var(--color-accent-light)] hover:underline">
-              {config.email}
-            </a>
-          </div>
-
-          <div>
-            <h3 class="font-semibold text-[var(--color-text-primary)] mb-2">Location</h3>
-            <p class="text-[var(--color-text-secondary)]">{config.location}</p>
-          </div>
-
-          <div>
-            <h3 class="font-semibold text-[var(--color-text-primary)] mb-2">Response Time</h3>
-            <p class="text-[var(--color-text-secondary)]">We typically respond within 24 hours on business days.</p>
-          </div>
-
-          <div class="p-4 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)]">
-            <h3 class="font-semibold text-[var(--color-text-primary)] mb-2">Looking for custom work?</h3>
-            <p class="text-sm text-[var(--color-text-secondary)]">
-              We build custom automations, APIs, scrapers, AI integrations, and data pipelines.
-              Include your project brief in your message and we'll scope it within 24 hours.
+<Layout title="Contact" description="Get in touch with Votting Group for partnerships, custom projects, or general enquiries.">
+  <section class="pt-32 pb-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-20">
+        <!-- Left: Info -->
+        <div>
+          <div class="reveal">
+            <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-accent)] mb-4 block">Contact</span>
+            <h1 class="font-serif text-4xl md:text-5xl font-medium leading-tight mb-6">
+              Let's Start a Conversation
+            </h1>
+            <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+              Whether you're exploring partnership opportunities, need custom software solutions, or have questions about our ventures — we're here to help.
             </p>
+          </div>
+
+          <div class="mt-12 space-y-8">
+            <div class="reveal reveal-delay-1">
+              <h3 class="text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Email</h3>
+              <a href={`mailto:${config.email}`} class="text-lg text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-300">
+                {config.email}
+              </a>
+            </div>
+
+            <div class="reveal reveal-delay-2">
+              <h3 class="text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Headquarters</h3>
+              <p class="text-lg text-[var(--color-text-primary)]">{config.location}</p>
+              <p class="text-sm text-[var(--color-text-muted)] mt-1">European Union</p>
+            </div>
+
+            <div class="reveal reveal-delay-3">
+              <h3 class="text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Response Time</h3>
+              <p class="text-[var(--color-text-secondary)]">We typically respond within 24 hours on business days.</p>
+            </div>
+          </div>
+
+          <!-- Inquiry types -->
+          <div class="reveal reveal-delay-4 mt-12 p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)]">
+            <h3 class="text-sm font-semibold text-[var(--color-text-primary)] mb-4">We can help with</h3>
+            <div class="grid grid-cols-2 gap-3">
+              {["Partnership Enquiries", "Custom Development", "API Integration", "Consulting", "Investment", "General Questions"].map(item => (
+                <div class="flex items-center gap-2">
+                  <div class="w-1 h-1 rounded-full bg-[var(--color-accent)]"></div>
+                  <span class="text-sm text-[var(--color-text-secondary)]">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
-        <!-- Contact Form -->
-        <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          action="/contact/success"
-          class="space-y-4"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-
-          <div>
-            <label for="name" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              class="w-full px-4 py-2.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
-              placeholder="Your name"
-            />
-          </div>
-
-          <div>
-            <label for="email" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="w-full px-4 py-2.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
-              placeholder="you@example.com"
-            />
-          </div>
-
-          <div>
-            <label for="subject" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Subject</label>
-            <select
-              id="subject"
-              name="subject"
-              class="w-full px-4 py-2.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)] transition-colors"
-            >
-              <option value="general">General Inquiry</option>
-              <option value="custom">Custom Project</option>
-              <option value="api">API Question</option>
-              <option value="support">Product Support</option>
-              <option value="partnership">Partnership</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="message" class="block text-sm font-medium text-[var(--color-text-secondary)] mb-1">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows="5"
-              class="w-full px-4 py-2.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] focus:outline-none focus:border-[var(--color-accent)] transition-colors resize-y"
-              placeholder="Tell us about your project or question..."
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="w-full px-6 py-3 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-medium transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]"
+        <!-- Right: Form -->
+        <div class="reveal reveal-delay-2">
+          <form
+            name="contact"
+            method="POST"
+            class="space-y-5"
+            id="contact-form"
           >
-            Send Message
-          </button>
-        </form>
+            <div>
+              <label for="name" class="block text-[11px] tracking-[0.15em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-5 py-3.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)]/40 focus:outline-none focus:border-[var(--color-accent)]/40 transition-colors duration-300 text-sm"
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-[11px] tracking-[0.15em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-5 py-3.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)]/40 focus:outline-none focus:border-[var(--color-accent)]/40 transition-colors duration-300 text-sm"
+                placeholder="you@company.com"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-[11px] tracking-[0.15em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Subject</label>
+              <select
+                id="subject"
+                name="subject"
+                class="w-full px-5 py-3.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] focus:outline-none focus:border-[var(--color-accent)]/40 transition-colors duration-300 text-sm"
+              >
+                <option value="general">General Enquiry</option>
+                <option value="partnership">Partnership</option>
+                <option value="custom">Custom Project</option>
+                <option value="api">API & Integration</option>
+                <option value="consulting">Consulting</option>
+                <option value="investment">Investment</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-[11px] tracking-[0.15em] uppercase text-[var(--color-text-muted)] font-medium mb-2">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows="6"
+                class="w-full px-5 py-3.5 rounded-lg bg-[var(--color-bg-card)] border border-[var(--color-border)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)]/40 focus:outline-none focus:border-[var(--color-accent)]/40 transition-colors duration-300 text-sm resize-y"
+                placeholder="Tell us about your enquiry..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full px-8 py-4 rounded-lg bg-[var(--color-text-primary)] text-[var(--color-bg-primary)] text-sm font-medium tracking-wide transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:scale-[1.01] active:scale-[0.99]"
+            >
+              Send Message
+            </button>
+
+            <p class="text-[11px] text-[var(--color-text-muted)] text-center mt-4">
+              By submitting this form, you agree to our <a href="/privacy" class="text-[var(--color-accent)] hover:underline">Privacy Policy</a>.
+            </p>
+          </form>
+        </div>
       </div>
     </div>
   </section>

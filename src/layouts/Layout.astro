@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const pageTitle = title ? `${title} | ${config.companyName}` : config.companyName;
+const pageTitle = title ? `${title} — ${config.companyName}` : `${config.companyName} — ${config.tagline}`;
 const pageDescription = description || config.description;
 ---
 
@@ -22,17 +22,15 @@ const pageDescription = description || config.description;
     <meta name="description" content={pageDescription} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Open Graph -->
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={config.url} />
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
       rel="stylesheet"
     />
 
@@ -45,5 +43,64 @@ const pageDescription = description || config.description;
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Scroll reveal observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      );
+
+      document.querySelectorAll(".reveal, .fade-up, .fade-left, .fade-right").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Animated counters
+      document.querySelectorAll("[data-count]").forEach((el) => {
+        const target = parseInt(el.getAttribute("data-count") || "0");
+        const suffix = el.getAttribute("data-suffix") || "";
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCount(el as HTMLElement, target, suffix);
+                counterObserver.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+        counterObserver.observe(el);
+      });
+
+      function animateCount(el: HTMLElement, target: number, suffix: string) {
+        let current = 0;
+        const duration = 1500;
+        const step = target / (duration / 16);
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          el.textContent = Math.floor(current) + suffix;
+        }, 16);
+      }
+
+      // Smooth parallax on hero
+      const hero = document.querySelector("[data-parallax]");
+      if (hero) {
+        window.addEventListener("scroll", () => {
+          const scrolled = window.scrollY;
+          (hero as HTMLElement).style.transform = `translateY(${scrolled * 0.3}px)`;
+        }, { passive: true });
+      }
+    </script>
   </body>
 </html>

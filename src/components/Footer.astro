@@ -4,44 +4,53 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
-  <div class="max-w-6xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-3 gap-8">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+    <div class="grid md:grid-cols-4 gap-12 lg:gap-16">
       <!-- Brand -->
-      <div>
-        <span class="text-lg font-bold text-[var(--color-accent-light)]">{config.companyName}</span>
-        <p class="mt-2 text-sm text-[var(--color-text-muted)] max-w-xs">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-7 h-7 rounded-sm bg-gradient-to-br from-[var(--color-accent)] to-[var(--color-gold)] opacity-80"></div>
+          <span class="text-base font-semibold tracking-wide">{config.companyName}</span>
+        </div>
+        <p class="text-sm text-[var(--color-text-muted)] max-w-sm leading-relaxed">
           {config.description}
+        </p>
+        <p class="text-xs text-[var(--color-text-muted)] mt-6 opacity-60">
+          {config.legalName}<br />
+          {config.location}
         </p>
       </div>
 
-      <!-- Links -->
+      <!-- Navigation -->
       <div>
-        <h3 class="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Navigate</h3>
-        <ul class="space-y-2">
-          <li><a href="/" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Home</a></li>
-          <li><a href="/products" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Products</a></li>
-          <li><a href="/about" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">About</a></li>
-          <li><a href="/contact" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Contact</a></li>
+        <h3 class="text-[11px] font-semibold text-[var(--color-text-muted)] uppercase tracking-[0.2em] mb-5">Company</h3>
+        <ul class="space-y-3">
+          <li><a href="/" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">Home</a></li>
+          <li><a href="/ventures" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">Ventures</a></li>
+          <li><a href="/about" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">About</a></li>
+          <li><a href="/contact" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">Contact</a></li>
         </ul>
       </div>
 
       <!-- Legal -->
       <div>
-        <h3 class="text-sm font-semibold text-[var(--color-text-secondary)] uppercase tracking-wider mb-3">Legal</h3>
-        <ul class="space-y-2">
-          <li><a href="/privacy" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Privacy Policy</a></li>
-          <li><a href="/terms" class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors">Terms of Service</a></li>
+        <h3 class="text-[11px] font-semibold text-[var(--color-text-muted)] uppercase tracking-[0.2em] mb-5">Legal</h3>
+        <ul class="space-y-3">
+          <li><a href="/privacy" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">Privacy Policy</a></li>
+          <li><a href="/terms" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">Terms of Service</a></li>
+          <li><a href={`mailto:${config.email}`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors duration-300">{config.email}</a></li>
         </ul>
-        <div class="mt-4">
-          <p class="text-sm text-[var(--color-text-muted)]">{config.email}</p>
-          <p class="text-sm text-[var(--color-text-muted)]">{config.location}</p>
-        </div>
       </div>
     </div>
 
-    <div class="mt-8 pt-8 border-t border-[var(--color-border)]">
-      <p class="text-sm text-[var(--color-text-muted)] text-center">
-        &copy; {year} {config.companyName}. All rights reserved.
+    <div class="hr-gradient mt-12 mb-8"></div>
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[var(--color-text-muted)] opacity-60">
+        &copy; {year} {config.legalName}. All rights reserved.
+      </p>
+      <p class="text-xs text-[var(--color-text-muted)] opacity-40">
+        {config.registry} &middot; {config.location}
       </p>
     </div>
   </div>

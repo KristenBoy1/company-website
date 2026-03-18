@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { config } from "../config";
+
+const verticalDescriptions: Record<string, string> = {
+  Software: "Enterprise-grade platforms, APIs, and applications powering businesses at scale.",
+  Commerce: "Digital products, retail operations, and marketplace distribution.",
+  Services: "Consulting and custom engineering for businesses worldwide.",
+  Research: "Proprietary AI and quantitative systems pushing the boundaries of what's possible.",
+};
+
+const verticalOrder = ["Software", "Commerce", "Services", "Research"];
+
+const grouped: Record<string, typeof config.ventures[number][]> = {};
+for (const v of config.ventures) {
+  if (!grouped[v.vertical]) grouped[v.vertical] = [];
+  grouped[v.vertical].push(v);
+}
+---
+
+<Layout title="Ventures" description="Explore the Votting Group portfolio of digital ventures across software, commerce, services, and research.">
+  <section class="pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal max-w-3xl">
+        <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-accent)] mb-4 block">Portfolio</span>
+        <h1 class="font-serif text-4xl md:text-6xl font-medium leading-tight mb-6">Our Ventures</h1>
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+          A diversified portfolio spanning software, digital commerce, professional services, and AI research.
+          Each venture operates independently while leveraging shared infrastructure and operational excellence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {verticalOrder.map((vertical, vi) => (
+    <section class:list={["py-20 border-t border-[var(--color-border)]", vi % 2 === 1 ? "bg-[var(--color-bg-secondary)]" : ""]}>
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+          <div>
+            <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-gold)] mb-2 block">{vertical}</span>
+            <h2 class="font-serif text-2xl md:text-3xl font-medium">{vertical}</h2>
+          </div>
+          <p class="text-sm text-[var(--color-text-muted)] max-w-md">
+            {verticalDescriptions[vertical]}
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {(grouped[vertical] || []).map((venture, i) => (
+            <div class={`reveal reveal-delay-${i + 1} group p-7 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] border-glow card-shine`}>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                  {venture.name}
+                </h3>
+                <span class:list={[
+                  "text-[9px] tracking-wider uppercase font-medium px-2.5 py-1 rounded-full shrink-0",
+                  venture.status === "Operational" ? "bg-emerald-500/10 text-emerald-400/80" :
+                  venture.status === "Active" ? "bg-[var(--color-accent)]/10 text-[var(--color-accent)]" :
+                  "bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
+                ]}>
+                  {venture.status}
+                </span>
+              </div>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                {venture.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Custom Work CTA -->
+  <section class="py-24 border-t border-[var(--color-border)]">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="font-serif text-2xl md:text-3xl font-medium mb-4">Looking for Custom Solutions?</h2>
+        <p class="text-[var(--color-text-secondary)] mb-8 max-w-lg mx-auto leading-relaxed">
+          We build custom automation systems, APIs, and AI integrations for businesses.
+          Let's discuss your requirements.
+        </p>
+        <a
+          href="/contact"
+          class="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full border border-[var(--color-border-light)] text-[var(--color-text-primary)] text-sm font-medium tracking-wide transition-all hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg-primary)]"
+        >
+          Discuss a Project
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,97 +1,142 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { config } from "../config";
+
+const verticals = [
+  { label: "Software", count: 3 },
+  { label: "Commerce", count: 3 },
+  { label: "Services", count: 1 },
+  { label: "Research", count: 1 },
+];
+
+const stats = [
+  { value: "8", suffix: "+", label: "Active Ventures" },
+  { value: "9", suffix: "+", label: "APIs Deployed" },
+  { value: "40", suffix: "+", label: "Digital Products" },
+  { value: "2026", suffix: "", label: "Founded" },
+];
 ---
 
 <Layout>
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden">
-    <!-- Gradient Background -->
-    <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-accent)]/5 via-transparent to-transparent"></div>
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[var(--color-accent)]/8 rounded-full blur-[120px]"></div>
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
+    <!-- Ambient light -->
+    <div class="glow-orb w-[600px] h-[600px] bg-[var(--color-accent)] top-[-200px] left-1/2 -translate-x-1/2 opacity-[0.07]" data-parallax></div>
+    <div class="glow-orb w-[400px] h-[400px] bg-[var(--color-gold)] bottom-[-100px] right-[-100px] opacity-[0.05]"></div>
 
-    <div class="relative max-w-6xl mx-auto px-6 pt-24 pb-20 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-[var(--color-accent-light)] text-sm font-medium mb-8">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        Building in public
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-24 text-center">
+      <!-- Overline -->
+      <div class="reveal mb-8">
+        <span class="inline-block text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-text-muted)] border border-[var(--color-border-light)] rounded-full px-5 py-2">
+          {config.legalName} &middot; {config.location}
+        </span>
       </div>
 
-      <h1 class="text-4xl md:text-6xl font-bold tracking-tight leading-tight max-w-4xl mx-auto">
-        {config.tagline}
+      <!-- Main heading -->
+      <h1 class="reveal reveal-delay-1 font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-[1.05] tracking-tight max-w-5xl mx-auto">
+        <span class="gradient-text">Building the Future</span><br />
+        <span class="text-[var(--color-text-primary)]">of Digital Commerce</span>
       </h1>
 
-      <p class="mt-6 text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed">
-        {config.description}
+      <!-- Subtitle -->
+      <p class="reveal reveal-delay-2 mt-8 text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed font-light">
+        We invest in, build, and operate ventures across software, digital products, e-commerce, and artificial intelligence.
       </p>
 
-      <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+      <!-- CTAs -->
+      <div class="reveal reveal-delay-3 mt-12 flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/products"
-          class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-medium transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]"
+          href="/ventures"
+          class="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-[var(--color-text-primary)] text-[var(--color-bg-primary)] text-sm font-medium tracking-wide transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:scale-[1.02]"
         >
-          View Products
+          Our Ventures
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
         </a>
         <a
-          href="/contact"
-          class="inline-flex items-center justify-center px-8 py-3 rounded-lg border border-[var(--color-border-light)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] hover:border-[var(--color-text-muted)] font-medium transition-all"
+          href="/about"
+          class="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-[var(--color-border-light)] text-[var(--color-text-secondary)] text-sm font-medium tracking-wide transition-all hover:border-[var(--color-text-muted)] hover:text-[var(--color-text-primary)]"
         >
-          Get in Touch
+          About the Group
         </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="reveal reveal-delay-5 mt-24 flex flex-col items-center gap-2">
+        <span class="text-[10px] tracking-[0.25em] uppercase text-[var(--color-text-muted)]">Scroll</span>
+        <div class="w-px h-8 bg-gradient-to-b from-[var(--color-text-muted)] to-transparent animate-pulse"></div>
       </div>
     </div>
   </section>
 
-  <!-- What We Build -->
-  <section class="py-20 border-t border-[var(--color-border)]">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">What We Build</h2>
-      <p class="text-[var(--color-text-secondary)] text-center max-w-xl mx-auto mb-12">
-        From APIs to automation workflows, templates to trading systems. Products that generate revenue on autopilot.
-      </p>
+  <!-- Verticals overview -->
+  <section class="relative py-28 border-t border-[var(--color-border)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+        <!-- Left: heading -->
+        <div class="reveal">
+          <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-accent)] mb-4 block">What We Do</span>
+          <h2 class="font-serif text-3xl md:text-5xl font-medium leading-tight">
+            A diversified portfolio of digital ventures
+          </h2>
+          <p class="mt-6 text-[var(--color-text-secondary)] leading-relaxed max-w-lg">
+            From enterprise APIs to consumer products, our ventures span the full spectrum of digital commerce.
+            Each operates independently while sharing infrastructure, intelligence, and operational expertise.
+          </p>
+          <a href="/ventures" class="inline-flex items-center gap-2 mt-8 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-text-primary)] transition-colors link-underline">
+            Explore all ventures
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+        </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {config.products.map((product) => (
-          <div class="group p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]">
-            <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center text-[var(--color-accent-light)]">
-                {product.icon === "api" && (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                )}
-                {product.icon === "workflow" && (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
-                )}
-                {product.icon === "service" && (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                )}
-                {product.icon === "template" && (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                )}
-                {product.icon === "skill" && (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
-                )}
-                {product.icon === "app" && (
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                )}
+        <!-- Right: vertical cards -->
+        <div class="grid grid-cols-2 gap-4">
+          {verticals.map((v, i) => (
+            <div class={`reveal reveal-delay-${i + 1} p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] border-glow card-shine`}>
+              <div class="text-3xl font-serif font-medium text-[var(--color-text-primary)] mb-1">
+                {v.count}
               </div>
+              <div class="text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium">
+                {v.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured ventures -->
+  <section class="relative py-28 border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)] bg-noise">
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="reveal text-center mb-16">
+        <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-accent)] mb-4 block">Portfolio</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-medium">Our Ventures</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-5">
+        {config.ventures.map((venture, i) => (
+          <div class={`reveal reveal-delay-${(i % 4) + 1} group p-7 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] border-glow card-shine`}>
+            <div class="flex items-start justify-between mb-4">
               <div>
-                <h3 class="font-semibold text-[var(--color-text-primary)]">{product.name}</h3>
-                <span class="text-xs text-[var(--color-text-muted)]">{product.platform}</span>
+                <h3 class="text-lg font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
+                  {venture.name}
+                </h3>
+                <span class="text-[10px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium">
+                  {venture.vertical}
+                </span>
               </div>
-            </div>
-            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">{product.description}</p>
-            <div class="mt-4 flex items-center justify-between">
               <span class:list={[
-                "text-xs font-medium px-2 py-0.5 rounded",
-                product.status === "Live" ? "bg-emerald-500/10 text-emerald-400" :
-                product.status === "Coming Soon" ? "bg-amber-500/10 text-amber-400" :
-                "bg-[var(--color-accent)]/10 text-[var(--color-accent-light)]"
+                "text-[10px] tracking-wider uppercase font-medium px-3 py-1 rounded-full",
+                venture.status === "Operational" ? "bg-emerald-500/10 text-emerald-400/80" :
+                venture.status === "Active" ? "bg-[var(--color-accent)]/10 text-[var(--color-accent)]" :
+                "bg-[var(--color-gold)]/10 text-[var(--color-gold)]"
               ]}>
-                {product.status}
+                {venture.status}
               </span>
-              {product.link !== "#" && (
-                <a href={product.link} class="text-xs text-[var(--color-accent-light)] hover:underline">View &rarr;</a>
-              )}
             </div>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              {venture.description}
+            </p>
           </div>
         ))}
       </div>
@@ -99,42 +144,58 @@ import { config } from "../config";
   </section>
 
   <!-- Stats -->
-  <section class="py-16 border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-3xl font-bold text-[var(--color-accent-light)]">9+</div>
-          <div class="text-sm text-[var(--color-text-muted)] mt-1">REST APIs</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-[var(--color-accent-light)]">27+</div>
-          <div class="text-sm text-[var(--color-text-muted)] mt-1">Automation Workflows</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-[var(--color-accent-light)]">40+</div>
-          <div class="text-sm text-[var(--color-text-muted)] mt-1">Templates</div>
-        </div>
-        <div>
-          <div class="text-3xl font-bold text-[var(--color-accent-light)]">10+</div>
-          <div class="text-sm text-[var(--color-text-muted)] mt-1">Web Apps</div>
-        </div>
+  <section class="py-24 border-t border-[var(--color-border)]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+        {stats.map((stat, i) => (
+          <div class={`reveal reveal-delay-${i + 1}`}>
+            <div class="text-4xl md:text-5xl font-serif font-medium text-[var(--color-text-primary)]" data-count={stat.value} data-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <div class="text-[11px] tracking-[0.2em] uppercase text-[var(--color-text-muted)] font-medium mt-3">
+              {stat.label}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy band -->
+  <section class="py-24 border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-gold)] mb-6 block">Philosophy</span>
+        <blockquote class="font-serif text-2xl md:text-4xl font-medium leading-snug text-[var(--color-text-primary)] italic">
+          "Build once, distribute everywhere, automate relentlessly."
+        </blockquote>
+        <p class="mt-8 text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
+          We combine artificial intelligence, modern engineering, and lean operations to build
+          ventures that scale without proportional effort. Every product we create is designed
+          to compound in value over time.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="py-20 border-t border-[var(--color-border)]">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to automate?</h2>
-      <p class="text-[var(--color-text-secondary)] mb-8">
-        Browse our products or reach out for custom solutions. We build fast and ship on platforms where buyers find us.
-      </p>
-      <a
-        href="/contact"
-        class="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-[var(--color-accent)] hover:bg-[var(--color-accent-light)] text-white font-medium transition-all hover:shadow-[0_0_30px_var(--color-accent-glow)]"
-      >
-        Contact Us
-      </a>
+  <section class="relative py-28 border-t border-[var(--color-border)] overflow-hidden">
+    <div class="glow-orb w-[500px] h-[500px] bg-[var(--color-accent)] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.05]"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 lg:px-8 text-center">
+      <div class="reveal">
+        <h2 class="font-serif text-3xl md:text-4xl font-medium mb-5">Let's Build Something Together</h2>
+        <p class="text-[var(--color-text-secondary)] mb-10 max-w-lg mx-auto leading-relaxed">
+          Whether you're looking for custom software, partnership opportunities, or want to learn more about our ventures.
+        </p>
+        <a
+          href="/contact"
+          class="group inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full border border-[var(--color-border-light)] text-[var(--color-text-primary)] text-sm font-medium tracking-wide transition-all hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg-primary)] hover:scale-[1.02]"
+        >
+          Get in Touch
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
