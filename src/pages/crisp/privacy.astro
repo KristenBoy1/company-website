@@ -1,0 +1,150 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { config } from "../../config";
+---
+
+<Layout title="Crisp — Privacy Policy" description="Privacy policy for Crisp, a free browser extension by Votting Group. No server, no account, no data collection.">
+  <section class="pt-32 pb-24">
+    <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+      <!-- Header -->
+      <div class="reveal mb-12">
+        <span class="text-[11px] font-medium tracking-[0.3em] uppercase text-[var(--color-accent)] mb-4 block">Legal · Crisp extension</span>
+        <h1 class="font-serif text-3xl md:text-4xl font-medium mb-3">Crisp — Privacy Policy</h1>
+        <p class="text-sm text-[var(--color-text-muted)]">Last updated: April 16, 2026 · Effective for Crisp v0.1.0 and later</p>
+        <p class="text-sm text-[var(--color-text-muted)] mt-2">
+          This policy is specific to the Crisp browser extension. For the general Võtting Grupp OÜ website policy, see <a href="/privacy" class="text-[var(--color-accent)] hover:underline">/privacy</a>.
+        </p>
+      </div>
+
+      <!-- Short version banner -->
+      <div class="reveal reveal-delay-1 mb-12 p-6 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)]">
+        <p class="text-[var(--color-text-primary)] font-medium mb-2">Short version</p>
+        <p class="text-[var(--color-text-secondary)] leading-relaxed text-[15px]">
+          Crisp does not collect, transmit, or store your data anywhere outside your own browser. There is no account, no server, no analytics, no tracking. Your prompts go directly to your chosen AI provider — the same way they would without Crisp installed.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 space-y-8 text-[var(--color-text-secondary)] leading-relaxed text-[15px]">
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">1. What Crisp is</h2>
+          <p>
+            Crisp is a browser extension that improves how ChatGPT, Claude, Microsoft Copilot, and Perplexity respond. It is developed and maintained by {config.legalName}. It runs entirely on the user's device, inside the user's browser.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">2. What Crisp does with your data</h2>
+          <ul class="mt-3 space-y-2">
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>Adds extra style instructions to the messages you send to your chosen AI provider. Those instructions become part of the request that OpenAI, Anthropic, Microsoft, or Perplexity receive — sent only because <em>you</em> sent a message, to the service <em>you</em> chose to use.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>Rewrites the AI's reply in your browser after it arrives, removing overused AI phrases and typography we consider "slop".</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>Stores your settings — profiles, banned phrases, company brain text, local statistics — in <code class="px-1.5 py-0.5 rounded bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-xs">chrome.storage.local</code> on this device. This is a local browser store. We cannot access it.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">3. What Crisp does NOT do</h2>
+          <ul class="mt-3 space-y-2">
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>We do not run any server. There is no backend for Crisp.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>We do not send your prompts, AI replies, settings, or activity to us or any third party.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>We do not use analytics, telemetry, error reporting, or remote feature flags.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>We do not load or execute any remote code. All JavaScript is shipped inside the extension package.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span>We do not sell, share, or license any user data — because we do not have any.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">4. Permissions we request and why</h2>
+          <ul class="mt-3 space-y-2">
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">storage</strong> — to save your settings locally on your device.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">activeTab, tabs</strong> — to push settings updates to the AI chat tab you have open, without a reload.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">scripting</strong> — to run Crisp's logic inside the AI chat page's JavaScript context so we can augment your prompt before it is sent.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">contextMenus</strong> — to add Crisp actions to the right-click menu on supported sites.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-1 h-1 rounded-full bg-[var(--color-accent)] mt-2.5 shrink-0"></div>
+              <span><strong class="text-[var(--color-text-primary)]">host permissions</strong> — scoped to the four supported AI services and nothing else: chatgpt.com, claude.ai, copilot.microsoft.com (and m365.cloud.microsoft), and perplexity.ai.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">5. Third-party AI providers</h2>
+          <p>
+            When you use ChatGPT, Claude, Copilot, or Perplexity, the contents of your messages — including any style instructions Crisp has appended — are transmitted by your browser to the provider you chose. Their privacy policies apply to that transmission. Crisp is a client-side augmentation and does not change which provider processes your request.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">6. Your data stays yours</h2>
+          <p>
+            You can export, import, or reset your Crisp settings at any time from the extension's Settings page. Uninstalling the extension removes all Crisp data from your device.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">7. GDPR status</h2>
+          <p>
+            Crisp is a purely local tool and does not collect or process personal data on our behalf. {config.legalName} is not a data controller or processor with respect to the operation of the extension. For any privacy-related question not covered here, please see the full Võtting Grupp OÜ <a href="/privacy" class="text-[var(--color-accent)] hover:underline">privacy policy</a>.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">8. Changes to this policy</h2>
+          <p>
+            If we change how Crisp handles data, the new policy will ship with a new extension version and be posted on this page with an updated date.
+          </p>
+        </div>
+
+        <div class="pt-4">
+          <div class="hr-gradient mb-8"></div>
+          <h2 class="text-lg font-semibold text-[var(--color-text-primary)] mb-3">Contact</h2>
+          <p>Questions, security reports, or press enquiries about Crisp:</p>
+          <div class="mt-3 p-5 rounded-lg bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-sm">
+            <p class="text-[var(--color-text-primary)] font-medium">{config.legalName}</p>
+            <p class="text-[var(--color-text-muted)] mt-1">{config.location}</p>
+            <p class="text-[var(--color-text-muted)]">
+              <a href={`mailto:${config.email}`} class="text-[var(--color-accent)] hover:underline">{config.email}</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
