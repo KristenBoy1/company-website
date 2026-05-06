@@ -23,3 +23,6 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 preview-homepage.png
+
+# Local Netlify folder
+.netlify

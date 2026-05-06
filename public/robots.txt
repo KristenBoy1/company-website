@@ -1,0 +1,10 @@
+# Votting Group — robots.txt
+# Canonical host is https://votting-group.com (GitHub Pages).
+# The Netlify mirror at votting-group.netlify.app 301-redirects here, so
+# crawlers should never see two indexable copies. Sitemap auto-generated
+# by @astrojs/sitemap at build time.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://votting-group.com/sitemap-index.xml

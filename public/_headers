@@ -1,0 +1,11 @@
+# Netlify-only file (ignored by GitHub Pages).
+# Belt-and-braces SEO safety on the Netlify mirror: even if the redirect
+# above somehow fails, search engines should not index any page served
+# from votting-group.netlify.app.
+
+/*
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

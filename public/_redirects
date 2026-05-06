@@ -1,0 +1,8 @@
+# Netlify-only file (GitHub Pages ignores files starting with `_`).
+# Permanently redirect every request hitting the Netlify mirror to the
+# canonical custom domain on GitHub Pages. This consolidates SEO signals
+# and prevents duplicate-content indexing.
+# 301! forces a hard redirect even when the requested path matches a
+# static asset on this Netlify build.
+
+/*  https://votting-group.com/:splat  301!

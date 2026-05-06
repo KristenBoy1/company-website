@@ -12,6 +12,13 @@ interface Props {
 const { title, description } = Astro.props;
 const pageTitle = title ? `${title} — ${config.companyName}` : `${config.companyName} — ${config.tagline}`;
 const pageDescription = description || config.description;
+
+// Build a fully-qualified canonical URL pointing at the configured `site`
+// (https://votting-group.com) for the current pathname. Search engines see
+// this and ignore the same content served from votting-group.netlify.app.
+const canonicalUrl = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).toString()
+  : config.url;
 ---
 
 <!doctype html>
@@ -22,10 +29,15 @@ const pageDescription = description || config.description;
     <meta name="description" content={pageDescription} />
     <meta name="generator" content={Astro.generator} />
 
+    <link rel="canonical" href={canonicalUrl} />
+
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={config.url} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
